@@ -50,17 +50,9 @@ Welcome to **Go-Sid-Server**! This is a simple HTTP server written in Go. It ser
 - Access the server:
 
 - Open your web browser and go to http://localhost:3000/.
-- Endpoints:
+ Endpoints:
 
-- GET / - Serves the index.html file.
-- POST /form.html - Handles form submissions and fill the form.
-- GET /hello - Simple hello endpoint.
-
-## Folder Structure Diagram
-go-server
-├── static
-│   ├── form.html
-│   └── index.html
-├── main.go
-└── README.md
+-- GET / - Serves the index.html file.
+--POST /form.html - Handles form submissions and fill the form.
+-- GET /hello - Simple hello endpoint.
 
