@@ -11,11 +11,7 @@ Welcome to **Go-Sid-Server**! This is a simple HTTP server written in Go. It ser
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [EndPoints](#endpoints)
 
 ## Introduction
 
