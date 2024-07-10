@@ -39,3 +39,28 @@ Welcome to **Go-Sid-Server**! This is a simple HTTP server written in Go. It ser
    ```sh
    git clone https://github.com/siddharttth/go-server.git
    cd go-server
+2. **Initialize the Go module:**
+   ```sh
+   go mod init github.com/siddharttth/go-server
+3. **Run the server:**
+   ```sh
+   go run main.go
+
+## Usage
+- Access the server:
+
+- Open your web browser and go to http://localhost:3000/.
+- Endpoints:
+
+- GET / - Serves the index.html file.
+- POST /form.html - Handles form submissions and fill the form.
+- GET /hello - Simple hello endpoint.
+
+## Folder Structure Diagram
+go-server
+├── static
+│   ├── form.html
+│   └── index.html
+├── main.go
+└── README.md
+
