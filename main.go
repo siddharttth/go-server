@@ -7,36 +7,28 @@ import (
 )
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		fmt.Fprintf(w, "ParseForm() err: %v", err)
-		return
+	if r.Method == "POST" {
+		name := r.FormValue("name")
+		email := r.FormValue("email")
+		phone := r.FormValue("phone")
+		address := r.FormValue("address")
+		message := r.FormValue("message")
+		fmt.Fprintf(w, "Name: %s\nEmail: %s\nPhone: %s\nAddress: %s\nMessage: %s", name, email, phone, address, message)
+	} else {
+		http.ServeFile(w, r, "static/form.html")
 	}
-	fmt.Fprintf(w, "POST request Success\n")
-	name := r.FormValue("name")
-	address := r.FormValue("address")
-	fmt.Fprintf(w, "Name=%s\n", name)
-	fmt.Fprintf(w, "Address=%s\n", address)
 }
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/hello" {
-		http.Error(w, "404 not found", http.StatusNotFound)
-		return
-	}
-	if r.Method != "GET" { // should be "GET" not "Get"
-		http.Error(w, "Method is not supported", http.StatusNotFound)
-		return
-	}
-	fmt.Fprintf(w, "Hello!") // Add a response for the /hello route
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "static/index.html")
 }
 
 func main() {
-	fileServer := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fileServer)
+	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/form", formHandler)
-	http.HandleFunc("/hello", helloHandler)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
-	fmt.Printf("starting server at port 3000\n")
+	fmt.Println("Server is running on port 3000...")
 	if err := http.ListenAndServe(":3000", nil); err != nil {
 		log.Fatal(err)
 	}
