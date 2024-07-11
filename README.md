@@ -45,6 +45,6 @@ Welcome to **Go-Sid-Server**! This is a simple HTTP server written in Go. It ser
 ##  🖇️Endpoints:
 
 - GET / - Serves the index.html file.
-- POST /form.html - Handles form submissions and fill the form.
+- POST /form - Handles form submissions and fill the form.
 - GET /hello - Simple hello endpoint.
 
